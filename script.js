@@ -66,19 +66,31 @@ function renderFormFilled() {
 
   const now = new Date()
 
-  nameInput.value = 'John Example';
-  cpfInput.value = generateCpf()
-  cnpjInput.value = generateCnpj()
-  phoneInput.value = '1131810250'
-  emailInput.value = 'john@example.com'
-  zipCodeInput.value = '04538-905'
-  zipNumberInput.value = '999'
-  companyNameInput.value = 'Acme'
-  tradingNameInput.value = 'Acme Inc.'
-  complementInput.value = `Adquirido em ${now}`
+  if (nameInput) { 
+    nameInput.value = 'John Example';
+    nameInput.dispatchEvent(new Event('input', { bubbles: true }));
+  }
 
-  nameInput.dispatchEvent(new Event('input', { bubbles: true }));
-  zipCodeInput.dispatchEvent(new Event('input', { bubbles: true }));
-  zipNumberInput.dispatchEvent(new Event('input', { bubbles: true }));
-  tradingNameInput.dispatchEvent(new Event('input', { bubbles: true }));
+  if(cpfInput) cpfInput.value = generateCpf()
+  if(cnpjInput) cnpjInput.value = generateCnpj()
+  if(phoneInput) phoneInput.value = '1131810250'
+  if (emailInput) emailInput.value = 'john@example.com'
+  
+  if (zipCodeInput) {
+    zipCodeInput.value = '04538-905'
+    zipCodeInput.dispatchEvent(new Event('input', { bubbles: true }));
+  }
+  
+  if (zipNumberInput) {
+    zipNumberInput.value = '999'
+    zipNumberInput.dispatchEvent(new Event('input', { bubbles: true }));
+  }
+
+  if (tradingNameInput) {
+    tradingNameInput.value = 'Acme Inc.' 
+    tradingNameInput.dispatchEvent(new Event('input', { bubbles: true }));
+  }
+  
+  if(companyNameInput) companyNameInput.value = 'Acme'
+  if(complementInput) complementInput.value = `Adquirido em ${now}`
 }
