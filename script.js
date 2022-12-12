@@ -92,5 +92,8 @@ function renderFormFilled() {
   }
   
   if(companyNameInput) companyNameInput.value = 'Acme'
-  if(complementInput) complementInput.value = `Adquirido em ${now}`
+  if (complementInput) {
+    complementInput.value = `Adquirido em ${now}`
+    complementInput.dispatchEvent(new Event('input', { bubbles: true }));
+  } 
 }
